@@ -49,10 +49,11 @@ export default function App() {
 
   return (
     <div className="relative font-mono z-10">
-      <img src="../img/sakura.png" alt="sakura tree" className="absolute top-0 left-0 w-[26rem] h-[16rem] object-cover rounded-lg z-10" />
-      <div className="sticky top-4 left-1/2 -translate-x-1/2 bg-gray-200 z-[9999] py-4 rounded-3xl border-double border-2 border-gray-500 w-96">
+      <img src="../img/sakura.png" alt="sakura tree" draggable="false" className="absolute top-0 left-0 w-[16rem] md:w-[26rem] h-[10rem] md:h-[16rem] object-cover rounded-lg z-10" />
+      
+      <div className="sticky top-4 left-1/2 -translate-x-1/2 bg-gray-200 z-[9999] py-2 md:py-4 rounded-3xl border-double border-2 border-gray-500 w-full md:w-96 mx-2 md:mx-0">
 
-        <div className="flex justify-center space-x-6 text-gray-700">
+        <div className="flex justify-center space-x-2 md:space-x-6 text-gray-700">
           <a href="#home" className="hover:text-gray-300 transition duration-300 transform hover:scale-105">Home</a>
           <a href="#projects" className="hover:text-gray-300 transition duration-300 transform hover:scale-105">Projects</a>
           <a href="#about" className="hover:text-gray-300 transition duration-300 transform hover:scale-105">About</a>
@@ -62,23 +63,24 @@ export default function App() {
       </div>
 
       <div id="home" className="min-h-screen flex items-center justify-center px-6">
-        <div className="relative max-w-4xl w-full bg-gray-200 p-8 rounded-lg shadow-lg z-20">
+        <div className="relative max-w-4xl w-full bg-gray-200 p-6 md:p-8 rounded-lg shadow-lg z-20">
           {pages.home ? (
             <div className="md:flex items-start mb-8">
               <div className="flex-shrink-0">
                 <img
+                  draggable="false"
                   src="../img/logo.png"
                   alt="Icon"
-                  className="w-20 h-20 object-cover rounded-lg"
+                  className="w-16 h-16 md:w-20 md:h-20 object-cover rounded-lg"
                 />
               </div>
-              <div className="ml-6">
-                <h1 className="text-3xl text-gray-800">{pages.home.title.rendered}</h1>
+              <div className="md:ml-6">
+                <h1 className="text-2xl md:text-3xl text-gray-800">{pages.home.title.rendered}</h1>
                 <div
-                  className="text-xl text-gray-600 mt-2 z-10"
+                  className="text-lg md:text-xl text-gray-600 mt-2 z-10"
                   dangerouslySetInnerHTML={{ __html: pages.home.excerpt.rendered }}
                 ></div>
-                <div className="mt-6 space-x-4 text-gray-500">
+                <div className="mt-4 md:mt-6 space-x-4 text-gray-500">
                   <a href="https://www.instagram.com/markpetrrnk/" className="hover:text-gray-800" target="_blank" rel="noopener noreferrer">
                     Instagram
                   </a>
@@ -101,31 +103,31 @@ export default function App() {
         </div>
       </div>
 
-      <div id="projects" className="bg-gray-100 min-h-screen py-16 px-6">
-        <div className="text-center mb-12">
-          <h2 className="text-lg text-gray-600 uppercase">My Craft</h2>
-          <h1 className="text-5xl text-gray-900">Projects</h1>
+      <div id="projects" className="bg-gray-100 min-h-screen py-8 md:py-16 px-4 md:px-6">
+        <div className="text-center mb-8 md:mb-12">
+          <h2 className="text-base md:text-lg text-gray-600 uppercase">My Craft</h2>
+          <h1 className="text-3xl md:text-5xl text-gray-900">Projects</h1>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 max-w-7xl mx-auto">
           {['annex', 'game'].map((slug) => (
             pages[slug] ? (
-              <div key={slug} className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 ease-in-out hover:scale-110 hover:bg-gray-100 z-10">
+              <div key={slug} className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 ease-in-out hover:scale-105 md:hover:scale-110 hover:bg-gray-100 z-10">
                 <div className="relative">
                   <img
                     src={`../img/${slug}.png`}
                     alt={slug.charAt(0).toUpperCase() + slug.slice(1)}
-                    className="w-full h-64 object-cover"
+                    className="w-full h-48 md:h-64 object-cover"
                   />
                 </div>
-                <div className="p-6">
-                  <h2 className="text-2xl text-gray-800">{pages[slug].title.rendered}</h2>
+                <div className="p-4 md:p-6">
+                  <h2 className="text-xl md:text-2xl text-gray-800">{pages[slug].title.rendered}</h2>
                   <p className="text-gray-600 mt-2" dangerouslySetInnerHTML={{ __html: pages[slug].excerpt.rendered }} />
                   <div className="mt-4 flex items-center space-x-3">
-                    <button className="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800">
+                    <button className="bg-black text-white px-3 py-2 rounded-lg hover:bg-gray-800">
                       View Project
                     </button>
-                    <button className="border border-gray-300 px-4 py-2 rounded-lg hover:border-gray-500">
+                    <button className="border border-gray-300 px-3 py-2 rounded-lg hover:border-gray-500">
                       Read More
                     </button>
                   </div>
@@ -139,11 +141,11 @@ export default function App() {
       </div>
 
       <div id="about" className="w-full bg-white">
-        <div className="flex flex-col md:flex-row bg-white p-8 rounded-md max-w-5xl mx-auto z-[1]">
+        <div className="flex flex-col md:flex-row bg-white p-4 md:p-8 rounded-md max-w-5xl mx-auto z-[1]">
           <div className="md:w-1/2 flex flex-wrap justify-center">
             {Array.from({ length: 4 }, (_, index) => (
               <div key={index} className="w-1/2 p-2">
-                <div className="bg-gray-200 h-64 flex items-center justify-center overflow-hidden transition-transform duration-300 ease-in-out hover:scale-125">
+                <div className="bg-gray-200 h-32 md:h-64 flex items-center justify-center overflow-hidden transition-transform duration-300 ease-in-out hover:scale-110 md:hover:scale-125">
                   <img
                     src={`../img/me${index}.jpg`}  
                     alt={`img ${index}`}
@@ -155,9 +157,9 @@ export default function App() {
           </div>
 
           <div className="md:w-1/2 md:pl-8 font-mono bg-gray-100 gap-5">
-            <h1 className="text-5xl text-gray-900">Petrenko <span className="text-gray-400">Mark</span></h1>
+            <h1 className="text-4xl md:text-5xl text-gray-900">Petrenko <span className="text-gray-400">Mark</span></h1>
             <p className="text-gray-500 mt-1">/ pe·tr·ɛnkə /</p>
-            <p className="text-l mt-2 text-gray-500">Петренко is a Ukrainian last name, but I originate from Russia.</p>
+            <p className="text-base md:text-l mt-2 text-gray-500">Петренко is a Ukrainian last name, but I originate from Russia.</p>
 
             {['aboutme', 'ive', 'im'].map((slug) => (
               pages[slug] ? (
@@ -165,7 +167,7 @@ export default function App() {
                   <p className="mt-2 text-gray-700" dangerouslySetInnerHTML={{ __html: pages[slug].excerpt.rendered }}></p>
                 </div>
               ) : (
-                <p key={slug}>Loading {slug.charAt(0).toUpperCase() + slug.slice(1)} Page...</p>
+                <p key={slug}>Loading About Page...</p>
               )
             ))}
           </div>
@@ -260,3 +262,4 @@ export default function App() {
     </div>
   );
 }
+ 
