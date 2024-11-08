@@ -48,10 +48,11 @@ export default function App() {
   }, []);
 
   return (
-    <div className="relative font-mono z-10">
+    <div className="relative font-mono z-10 snap-y snap-mandatory overflow-y-scroll h-screen">
       <img src="../img/sakura.png" alt="sakura tree" draggable="false" className="absolute top-0 left-0 w-[16rem] md:w-[26rem] h-[10rem] md:h-[16rem] object-cover rounded-lg z-10" />
       
-      <div className="sticky top-4 left-1/2 -translate-x-1/2 bg-gray-200 z-[9999] py-2 md:py-4 rounded-3xl border-double border-2 border-gray-500 w-full md:w-96 mx-2 md:mx-0">
+      <div className="sticky top-4 left-1/2 -translate-x-1/2 bg-gray-200 z-[50] pl-10 pr-10 md:py-4 rounded-3xl border-2 border-gray-500 w-full md:w-96 mx-[20rem] md:mx-0">
+
 
         <div className="flex justify-center space-x-2 md:space-x-6 text-gray-700">
           <a href="#home" className="hover:text-gray-300 transition duration-300 transform hover:scale-105">Home</a>
@@ -62,7 +63,7 @@ export default function App() {
         </div>
       </div>
 
-      <div id="home" className="min-h-screen flex items-center justify-center px-6">
+      <div id="home" className="flex items-center justify-center px-6 snap-start snap-always h-screen">
         <div className="relative max-w-4xl w-full bg-gray-200 p-6 md:p-8 rounded-lg shadow-lg z-20">
           {pages.home ? (
             <div className="md:flex items-start mb-8">
@@ -103,7 +104,7 @@ export default function App() {
         </div>
       </div>
 
-      <div id="projects" className="bg-gray-100 min-h-screen py-8 md:py-16 px-4 md:px-6">
+      <div id="projects" className="bg-gray-100 py-8 md:py-16 px-4 md:px-6 snap-start snap-always h-screen.">
         <div className="text-center mb-8 md:mb-12">
           <h2 className="text-base md:text-lg text-gray-600 uppercase">My Craft</h2>
           <h1 className="text-3xl md:text-5xl text-gray-900">Projects</h1>
@@ -140,7 +141,7 @@ export default function App() {
         </div>
       </div>
 
-      <div id="about" className="w-full bg-white">
+      <div id="about" className="w-full bg-white snap-start snap-always h-screen">
         <div className="flex flex-col md:flex-row bg-white p-4 md:p-8 rounded-md max-w-5xl mx-auto z-[1]">
           <div className="md:w-1/2 flex flex-wrap justify-center">
             {Array.from({ length: 4 }, (_, index) => (
@@ -173,11 +174,11 @@ export default function App() {
           </div>
         </div>
       </div>
-      <div  className="min-h-screen bg-gray-200 mt-4">
+      <div id="stack" className=" bg-gray-200 mt-4 snap-start snap-always h-screen">
         <h1 className="text-3xl font-mono text-center my-10">SKILLS</h1>
 
         <div className="text-center">
-          <h2  id="stack" className="text-xl mb-4">Front-end</h2>
+          <h2 className="text-xl mb-4">Front-end</h2>
           <div className="flex justify-center space-x-4">
             <div className="p-4 bg-gray-100 rounded shadow-md transform hover:scale-105 hover:bg-gray-300 transition duration-300">
               <img src="../img/js.png" alt="JavaScript" className="w-16 h-16 mx-auto" />
@@ -221,7 +222,7 @@ export default function App() {
         </div>
 
         <div className="text-center mt-10">
-          <h2 className="text-xl mb-4">Other</h2>
+          <h2 className="text-xl mb-4 scroll-snap-type: y var(--tw-scroll-snap-strictness)">Other</h2>
           <div className="flex justify-center space-x-4">
             <div className="p-4 bg-gray-100 rounded shadow-md transform hover:scale-105 hover:bg-gray-300 transition duration-300">
               <img src="../img/github.jpg" alt="Git" className="w-16 h-16 mx-auto" />
@@ -252,7 +253,7 @@ export default function App() {
               <a href="#" className="text-blue-500 hover:text-blue-700">X</a>
               <a href="#" className="text-blue-500 hover:text-blue-700">Portfolio</a>
               <a href="#" className="text-blue-500 hover:text-blue-700">Discord</a>
-              <a href="#" id="contact"className="text-blue-500 hover:text-blue-700">Instagram</a>
+              <a href="#" id="contact"className="text-blue-500 hover:text-blue-700 snap-start">Instagram</a>
             </div>
           </div>
         </div>
